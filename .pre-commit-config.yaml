@@ -1,15 +1,44 @@
+# Exclude unnecessary files from checks
+exclude: ^(.*\/migrations\/.*|.*\/static\/.*|.*\/templates\/.*|.*\.env.*|.*\.log.*)
+
+
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.8.0
+  # General file hygiene
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
     hooks:
-      - id: black
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-toml
+      - id: check-yaml
+      - id: mixed-line-ending
+        args: ['--fix=lf']
 
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
+  # Python syntax modernization
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.19.1
     hooks:
-      - id: isort
+      - id: pyupgrade
+        args: [--py312-plus]
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.1
+  # Linting & formatting (Ruff replaces flake8, isort, black)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.5
     hooks:
-      - id: flake8
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # Type checking (with Django stubs)
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.13.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [django-stubs, djangorestframework-stubs]
+
+  # Security checks
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.8
+    hooks:
+      - id: bandit
+        args: ["-ll"]

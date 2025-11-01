@@ -6,13 +6,11 @@ __pycache__/
 *.sqlite3
 
 # Environments
-.env
+# Uncomment .env for now since it's being used in development
+# .env
 .venv/
 venv/
 .env.local
-
-# Poetry
-poetry.lock
 
 # Django stuff
 /staticfiles/
@@ -31,3 +29,4 @@ pgadmin-data/
 
 # Other
 *.DS_Store
+.coverage
