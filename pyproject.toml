@@ -1,0 +1,33 @@
+[project]
+name = "cinema"
+version = "0.1.0"
+description = "Cinema API backend"
+authors = [
+    { name = "youcef", email = "youcef.tabellout@outlook.fr" }
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+
+dependencies = [
+    "django>=5.2.7,<6.0.0",
+    "djangorestframework>=3.16.1,<4.0.0",
+    "psycopg2-binary>=2.9.9,<3.0.0",
+    "python-dotenv>=1.0.1,<2.0.0",
+    "gunicorn>=23.0.0,<24.0.0",
+    "django-environ (>=0.12.0,<0.13.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+black = "^24.10.0"
+isort = "^5.13.2"
+flake8 = "^7.1.1"
+pytest = "^8.3.3"
+pytest-django = "^4.9.0"

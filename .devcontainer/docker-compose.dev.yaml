@@ -1,0 +1,5 @@
+services:
+  cinema-backend:
+    command: sleep infinity
+    ports:
+      - "8000:8000"

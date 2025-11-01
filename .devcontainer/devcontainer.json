@@ -1,0 +1,32 @@
+{
+ "name": "cinema-devcontainer",
+ "dockerComposeFile": [
+   "../docker-compose.yaml",
+   "docker-compose.dev.yaml"
+ ],
+ "service": "cinema-backend",
+ "workspaceFolder": "/app",
+ "runServices": ["cinema-db", "cinema-backend"],
+ "postCreateCommand": "poetry install --no-interaction --no-ansi",
+ "overrideCommand": false,
+ "shutdownAction": "stopCompose",
+ "customizations": {
+   "vscode": {
+     "settings": {
+       "python.defaultInterpreterPath": "/usr/bin/python3",
+       "terminal.integrated.defaultProfile.linux": "bash",
+       "python.testing.pytestEnabled": true,
+       "python.testing.unittestEnabled": false,
+       "python.analysis.indexing": true,
+       "python.analysis.autoImportCompletions": true
+     },
+     "extensions": [
+       "ms-python.python",
+       "ms-python.vscode-pylance",
+       "ms-azuretools.vscode-docker",
+       "charliermarsh.ruff",
+       "GitHub.copilot-chat"
+     ]
+   }
+ }
+}

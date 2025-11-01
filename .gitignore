@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environments
+.env
+.venv/
+venv/
+.env.local
+
+# Poetry
+poetry.lock
+
+# Django stuff
+/staticfiles/
+media/
+
+# VSCode & DevContainer
+.vscode/
+.devcontainer/.devcontainer.log
+
+# Docker
+**/__pycache__/
+**/.pytest_cache/
+**/*.log
+db-data/
+pgadmin-data/
+
+# Other
+*.DS_Store
