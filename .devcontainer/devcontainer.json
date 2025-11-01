@@ -7,7 +7,7 @@
  "service": "cinema-backend",
  "workspaceFolder": "/app",
  "runServices": ["cinema-db", "cinema-backend"],
- "postCreateCommand": "poetry install --no-interaction --no-ansi",
+ "postCreateCommand": "poetry install --no-interaction --no-ansi && poetry run pre-commit install",
  "overrideCommand": false,
  "shutdownAction": "stopCompose",
  "customizations": {

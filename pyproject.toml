@@ -31,3 +31,58 @@ isort = "^5.13.2"
 flake8 = "^7.1.1"
 pytest = "^8.3.3"
 pytest-django = "^4.9.0"
+pytest-cov = "^7.0.0"
+pydocstyle = "^6.3.0"
+ruff = "^0.14.3"
+
+mypy = "^1.13.0"
+django-stubs = "^5.1.1"
+djangorestframework-stubs = "^3.15.0"
+
+bandit = "^1.7.8"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.ruff]
+# Auto-fix safe issues
+fix = true
+
+line-length = 88
+
+# Select includes:
+# - E/F (pycodestyle/flake8)
+# - B (bugbear)
+# - C (complexity)
+# - I (imports)
+# - UP (pyupgrade)
+select = ["E", "F", "B", "C", "I", "UP"]
+
+# Ignore long lines (handled by black) and missing docstrings for now
+ignore = ["E501", "D100", "D104", "D107"]
+
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+strict_optional = true
+plugins = ["mypy_django_plugin.main"]
+
+# mypy plugin configuration for Django
+
+[tool.django-stubs]
+django_settings_module = "cinema.settings"
+strict_settings = true
+
+[tool.pydocstyle]
+convention = "google"
+add-ignore = ["D104", "D107", "D100"]
