@@ -43,6 +43,7 @@ repos:
           - djangorestframework-simplejwt
           - django-cors-headers
           - psycopg[binary]
+          - django-filter
 
   # Security checks
   - repo: https://github.com/PyCQA/bandit
